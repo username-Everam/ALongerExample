@@ -17,7 +17,6 @@ public class ResidentialSite {
 		_readings[i] = newReading;
 	}
 
-	@SuppressWarnings("deprecation")
 	public Dollars charge() {
 		// find last reading
 		int i = 0;
@@ -61,7 +60,6 @@ public class ResidentialSite {
 		return result;
 	}
 
-	@SuppressWarnings("deprecation")
 	private int dayOfYear(Date arg) {
 		int result;
 		switch (arg.getMonth()) {

@@ -3,26 +3,19 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Date;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DisabilitySiteTest {
 
     DisabilitySite _subject;
-    @SuppressWarnings("deprecation")
+
     Date dateDebut = new Date("21 Jun 2023");
-    @SuppressWarnings("deprecation")
     Date dateFin = new Date ("21 Sep 2023");
-    @SuppressWarnings("deprecation")
     Date dateAvant = new Date("21 Jan 2023");
-    @SuppressWarnings("deprecation")
     Date dateAvant2 = new Date("21 May 2023");
-    @SuppressWarnings("deprecation")
     Date dateApres = new Date("21 Oct 2023");
-    @SuppressWarnings("deprecation")
     Date dateApres2 = new Date("21 Nov 2023");
-    @SuppressWarnings("deprecation")
     Date datePendant = new Date("21 Jul 2023");
-    @SuppressWarnings("deprecation")
     Date datePendant2 = new Date("21 Aug 2023");
 
     @BeforeEach

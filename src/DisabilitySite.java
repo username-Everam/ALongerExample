@@ -18,7 +18,6 @@ public class DisabilitySite {
 		_readings[i] = newReading;
 	}
 
-	@SuppressWarnings("deprecation")
 	public Dollars charge() {
 		int i;
 		for (i = 0; _readings[i] != null; i++);
@@ -58,8 +57,7 @@ public class DisabilitySite {
 		result = new Dollars (result.plus(fuel.times(TAX_RATE).min(FUEL_TAX_CAP)));
 		return result;
 	}
-	
-	@SuppressWarnings("deprecation")
+
 	private int dayOfYear(Date arg) {
 		int result;
 		switch (arg.getMonth()) {

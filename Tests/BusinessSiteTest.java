@@ -3,13 +3,12 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Date;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class BusinessSiteTest {
 
     BusinessSite _subject;
 
-    @SuppressWarnings("deprecation")
     @BeforeEach
     public void setUp() {
         new Zone ("A", 0.06, 0.07, new Date("15 May 2023"), new Date ("10 Sep 2023")).register();
@@ -18,7 +17,6 @@ class BusinessSiteTest {
         _subject = new BusinessSite();
     }
 
-    @SuppressWarnings("deprecation")
     @Test
     public void testZero() {
         _subject.addReading(new Reading (10, new Date ("1 Jan 2023")));
@@ -26,7 +24,6 @@ class BusinessSiteTest {
         assertEquals(0d, _subject.charge().amount());
     }
 
-    @SuppressWarnings("deprecation")
     @Test
     public void test100() {
         _subject.addReading(new Reading (10, new Date ("1 Jan 2023")));
@@ -34,7 +31,6 @@ class BusinessSiteTest {
         assertEquals(7.27d, _subject.charge().amount());
     }
 
-    @SuppressWarnings("deprecation")
     @Test
     public void test99() {
         _subject.addReading(new Reading (100, new Date ("1 Jan 2023")));
@@ -42,7 +38,6 @@ class BusinessSiteTest {
         assertEquals(7.19d, _subject.charge().amount());
     }
 
-    @SuppressWarnings("deprecation")
     @Test
     public void test101() {
         _subject.addReading(new Reading (1000, new Date ("1 Jan 2023")));
@@ -50,7 +45,6 @@ class BusinessSiteTest {
         assertEquals(7.34d, _subject.charge().amount());
     }
 
-    @SuppressWarnings("deprecation")
     @Test
     public void test199() {
         _subject.addReading(new Reading (10000, new Date ("1 Jan 2023")));
@@ -58,7 +52,6 @@ class BusinessSiteTest {
         assertEquals(14.4d, _subject.charge().amount());
     }
 
-    @SuppressWarnings("deprecation")
     @Test
     public void test200() {
         _subject.addReading(new Reading (0, new Date ("1 Jan 2023")));
@@ -66,7 +59,6 @@ class BusinessSiteTest {
         assertEquals(14.48d, _subject.charge().amount());
     }
 
-    @SuppressWarnings("deprecation")
     @Test
     public void test201() {
         _subject.addReading(new Reading (50, new Date ("1 Jan 2023")));
@@ -74,7 +66,6 @@ class BusinessSiteTest {
         assertEquals(14.55d, _subject.charge().amount());
     }
 
-    @SuppressWarnings("deprecation")
     @Test
     public void testMax() {
         _subject.addReading(new Reading (0, new Date ("1 Jan 2023")));
