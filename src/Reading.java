@@ -1,11 +1,11 @@
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Reading {
 	
-	private Date _date;
-	private int _amount;
+	private final LocalDate _date;
+	private final int _amount;
 	
-	public Reading(int amount, Date date) {
+	public Reading(int amount, LocalDate date) {
 		_amount = amount;
 		_date = date;
 	}
@@ -14,7 +14,7 @@ public class Reading {
 		return _amount;
 	}
 
-	public Date date() {
+	public LocalDate date() {
 		return _date;
 	}
 

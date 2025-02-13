@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -9,14 +10,14 @@ class DisabilitySiteTest {
 
     DisabilitySite _subject;
 
-    Date dateDebut = new Date("21 Jun 2023");
-    Date dateFin = new Date ("21 Sep 2023");
-    Date dateAvant = new Date("21 Jan 2023");
-    Date dateAvant2 = new Date("21 May 2023");
-    Date dateApres = new Date("21 Oct 2023");
-    Date dateApres2 = new Date("21 Nov 2023");
-    Date datePendant = new Date("21 Jul 2023");
-    Date datePendant2 = new Date("21 Aug 2023");
+    LocalDate dateDebut = LocalDate.parse("2023-06-21");
+    LocalDate dateFin = LocalDate.parse("2023-09-21");
+    LocalDate dateAvant = LocalDate.parse("2023-01-21");
+    LocalDate dateAvant2 = LocalDate.parse("2023-05-21");
+    LocalDate dateApres = LocalDate.parse("2023-10-21");
+    LocalDate dateApres2 = LocalDate.parse("2023-11-21");
+    LocalDate datePendant = LocalDate.parse("2023-07-21");
+    LocalDate datePendant2 = LocalDate.parse("2023-08-21");
 
     @BeforeEach
     public void setUp() {

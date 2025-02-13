@@ -1,15 +1,15 @@
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.HashMap;
 
 public class Zone {
 
-	private String _name;
-	private Date _summerEnd;
-	private Date _summerStart;
-	private double _winterRate;
-	private double _summerRate;
+	private final String _name;
+	private final LocalDate _summerEnd;
+	private final LocalDate _summerStart;
+	private final double _winterRate;
+	private final double _summerRate;
 	
-	private static HashMap<String, Zone> Registry = new HashMap<String, Zone>();
+	private static final HashMap<String, Zone> Registry = new HashMap<String, Zone>();
 
 	public Zone register() {
 		Registry.put(_name, this);
@@ -21,7 +21,7 @@ public class Zone {
 	}
 	
 	public Zone (String name, double summerRate, double winterRate,
-			Date summerStart, Date summerEnd) {
+				 LocalDate summerStart, LocalDate summerEnd) {
 		_name = name;
 		_summerRate = summerRate;
 		_winterRate = winterRate;
@@ -29,11 +29,11 @@ public class Zone {
 		_summerEnd = summerEnd;
 	}
 
-	public Date summerEnd() {
+	public LocalDate summerEnd() {
 		return _summerEnd;
 	}
 	
-	public Date summerStart() {
+	public LocalDate summerStart() {
 		return _summerStart;
 	}
 	
