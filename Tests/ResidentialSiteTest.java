@@ -70,6 +70,6 @@ class ResidentialSiteTest {
     public void testMax() {
         _subject.addReading(new Reading (0, dateDebut));
         _subject.addReading(new Reading (Integer.MAX_VALUE, dateFin));
-        assertEquals (1.7738214892E8, _subject.charge().amount());
+        assertEquals (1.7475148177E8, _subject.charge().amount());
     }
 }

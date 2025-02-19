@@ -1,34 +1,15 @@
 import java.time.LocalDate;
 
-public class ResidentialSite {
+public class ResidentialSite extends Site {
 
-	private final Reading[] _readings = new Reading[1000];
 	private static final double TAX_RATE = 0.05;
-	private final Zone _zone;
 
-	public ResidentialSite (Zone zone) {
-		_zone = zone;
+	public ResidentialSite(Zone zone) {
+		super(zone);
 	}
 
-	public void addReading(Reading newReading) {
-		// add reading to end of array
-		int i = 0;
-		while (_readings[i] != null) i++;
-		_readings[i] = newReading;
-	}
-
-	public Dollars charge() {
-		// find last reading
-		int i = 0;
-		while (_readings[i] != null) i++;
-		int usage = _readings[i-1].amount() - _readings[i-2].amount();
-		LocalDate end = LocalDate.parse(_readings[i-1].toString());
-		LocalDate start = LocalDate.parse(_readings[i-2].toString());
-		start = start.plusDays(1); //set to begining of period
-		return charge(usage, start, end);
-	}
-
-	private Dollars charge(int usage, LocalDate start, LocalDate end) {
+	@Override
+	public Dollars charge(int usage, LocalDate start, LocalDate end) {
 		Dollars result;
 		double summerFraction;
 
@@ -76,7 +57,7 @@ public class ResidentialSite {
 			default -> throw new IllegalArgumentException();
 		};
 
-		result += Integer.parseInt(arg.toString());
+		result += arg.getDayOfYear();
 		//check leap year
 		if ((arg.getYear()%4 == 0) && ((arg.getYear() % 100 != 0) ||
 				((arg.getYear() + 1900) % 400 == 0))) {

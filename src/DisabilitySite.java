@@ -1,34 +1,16 @@
 import java.time.LocalDate;
 
-public class DisabilitySite {
-
-	private final Reading[] _readings = new Reading[1000];
+public class DisabilitySite extends Site {
 	private static final Dollars FUEL_TAX_CAP = new Dollars (0.10);
 	private static final double TAX_RATE = 0.05;
-	private final Zone _zone;
 	private static final int CAP = 200;
-	
-	public DisabilitySite (Zone zone) {
-		_zone = zone;
+
+	public DisabilitySite(Zone zone) {
+		super(zone);
 	}
 
-	public void addReading(Reading newReading) {
-		int i;
-		for (i = 0; _readings[i] != null; i++);
-		_readings[i] = newReading;
-	}
-
-	public Dollars charge() {
-		int i;
-		for (i = 0; _readings[i] != null; i++);
-		int usage = _readings[i-1].amount() - _readings[i-2].amount();
-		LocalDate end = LocalDate.parse(_readings[i-1].toString());
-		LocalDate start = LocalDate.parse(_readings[i-2].toString());
-		start = start.plusDays(1); //set to begining of period
-		return charge(usage, start, end);
-	}
-
-	private Dollars charge(int fullUsage, LocalDate start, LocalDate end) {
+	@Override
+	public Dollars charge(int fullUsage, LocalDate start, LocalDate end) {
 		Dollars result;
 		double summerFraction;
 		int usage = Math.min(fullUsage, CAP);
@@ -75,7 +57,7 @@ public class DisabilitySite {
             default -> throw new IllegalArgumentException();
         };
 
-        result += Integer.parseInt(arg.toString());
+        result += arg.getDayOfYear();
 		//check leap year
 		if ((arg.getYear()%4 == 0) && ((arg.getYear() % 100 != 0) ||
 				((arg.getYear() + 1900) % 400 == 0))) {
